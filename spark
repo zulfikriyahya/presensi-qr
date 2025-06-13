@@ -2,7 +2,7 @@
 if (strpos(PHP_SAPI, 'cgi') === 0) {
     exit("The cli tool is not supported when running php-cgi. It needs php-cli to function!\n\n");
 }
-$minPhpVersion = '8.1'; // If you update this, don't forget to update `public/index.php`.
+$minPhpVersion = '8.1';
 if (version_compare(PHP_VERSION, $minPhpVersion, '<')) {
     $message = sprintf(
         'Your PHP version must be %s or higher to run CodeIgniter. Current version: %s',
