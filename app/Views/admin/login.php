@@ -1,17 +1,12 @@
 <?= $this->extend('templates/starting_page_layout'); ?>
-
 <?= $this->section('content'); ?>
-
 <div class="main-panel">
    <div class="content align-content-center">
       <div class="container-fluid">
-
          <div class="row">
-
             <!-- Left Sidebar -->
             <div class="col-lg-4">
             </div>
-
             <!-- Main Content -->
             <div class="col-lg-4">
                <div class="card bg-dark text-light">
@@ -21,7 +16,7 @@
                            <div class="text-header">
                               <div class="card-title text-center text-dark" style="font-size: 2.5rem ; font-weight: bolder;"><strong>
                                     <i class="material-icons font-weight-bolder" style="font-size: 2rem;">qr_code_scanner</i>
-                                    LOGIN PRESENSI
+                                    LOGIN
                                  </strong></div>
                            </div>
                         </div>

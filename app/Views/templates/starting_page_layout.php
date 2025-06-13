@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +18,6 @@
          top: 0;
          bottom: 0;
       }
-
       .main-panel {
          background-color: #010101;
          position: relative; 
@@ -28,21 +26,18 @@
          width: calc(100%);
          transition: 0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1);
       }
-
       video#previewKamera {
          width: 100%;
          height: 100%;
          border-radius: .5rem;
          border: solid .4rem orange;
       }
-
       .infoPresensi {
          width: 100%;
          height: 100%;
          border-radius: .5rem;
          border: solid .2rem cyan;
       }
-
       .informasi {
          width: 100%;
          height: 100%;
@@ -50,18 +45,15 @@
          border-radius: .2rem;
          border: double .2rem cyan;
       }
-
       .unpreview {
          background-color: aquamarine;
          text-align: center;
       }
-
       .form-select {
          min-width: 200px;
       }
    </style>
 </head>
-
 <body>
    <div class="bg bg-image"></div>
    <!-- Navbar -->
@@ -81,5 +73,4 @@
    <?= $this->renderSection('content') ?>
    <?= $this->include('templates/js'); ?>
 </body>
-
 </html>

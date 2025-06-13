@@ -1,9 +1,8 @@
-<h3 class="text-danger"><?= $msg; ?></h3>
-
+<h3 class="text-danger">
+   <?= $msg; ?>
+</h3>
 <?php
-
 use App\Libraries\enums\TipeUser;
-
 if (empty($type)) {
    return;
 } else {
@@ -47,5 +46,4 @@ function jam($presensi)
    <p>Jam pulang : <b class="text-info"><?= $presensi['jam_keluar'] ?? '-'; ?></b></p>
 <?php
 }
-
 ?>

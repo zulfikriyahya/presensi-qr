@@ -1,10 +1,9 @@
 <?php
-
 use App\Libraries\enums\TipeUser;
-
 switch ($type) {
    case TipeUser::Siswa:
 ?>
+   <!-- Scan Presensi Siswa -->
       <h3 class="text-success text-center mb-4"><b>Presensi <?= $waktu; ?> berhasil!</b></h3>
       <div class="row w-100">
          <div class="col">
@@ -18,7 +17,6 @@ switch ($type) {
             <?= jam($presensi); ?>
          </div>
       </div>
-
       <div hidden>
          <?php
          $nama_siswa = $data['nama_siswa'];
@@ -32,7 +30,6 @@ switch ($type) {
                return "Adinda";
             }
          }
-
          if (($waktu == "masuk") && (TipeUser::Siswa)) {
             // Notifikasi Whatsapp Presensi Masuk Siswa
             $curl = curl_init();
@@ -47,26 +44,18 @@ switch ($type) {
                CURLOPT_CUSTOMREQUEST => 'POST',
                CURLOPT_POSTFIELDS => array(
                   'message' => '*PTSP MTSN 1 PANDEGLANG*
-
-*Presensi ' . $waktu . '* berhasil!
-Kami informasikan bahwa *' . panggilan($jenis_kelamin) . ' ' . $nama_siswa . '* telah melakukan presensi ' . $waktu . ' hari ini pukul ' . $presensi['jam_masuk'] . ' WIB.
-
-_© 2024 - ' . $tahun . ' MTs Negeri 1 Pandeglang_',
-
+                  *Presensi ' . $waktu . '* berhasil!
+                  Kami informasikan bahwa *' . panggilan($jenis_kelamin) . ' ' . $nama_siswa . '* telah melakukan presensi ' . $waktu . ' hari ini pukul ' . $presensi['jam_masuk'] . ' WIB.
+                  _© 2024 - ' . $tahun . ' MTs Negeri 1 Pandeglang_',
                   'number' =>  $data['no_hp']
                ),
             ));
-
             $response = curl_exec($curl);
-
             curl_close($curl);
             echo $response;
-            // Akhir Notifikasi Whatsapp   
-
          } else {
             // Notifikasi Whatsapp Presensi Pulang Siswa
             $curl = curl_init();
-
             curl_setopt_array($curl, array(
                CURLOPT_URL => 'https://api.zedlabs.id/send-message',
                CURLOPT_RETURNTRANSFER => true,
@@ -78,30 +67,23 @@ _© 2024 - ' . $tahun . ' MTs Negeri 1 Pandeglang_',
                CURLOPT_CUSTOMREQUEST => 'POST',
                CURLOPT_POSTFIELDS => array(
                   'message' => '*PTSP MTSN 1 PANDEGLANG*
-
-*Presensi ' . $waktu . '* berhasil!
-Kami informasikan bahwa *' . panggilan($jenis_kelamin) . ' ' . $nama_siswa . '* telah melakukan presensi ' . $waktu . ' hari ini pukul ' . $presensi['jam_keluar'] . ' WIB.
-
-_© 2024 - ' . $tahun . ' MTs Negeri 1 Pandeglang_',
-
+                  *Presensi ' . $waktu . '* berhasil!
+                  Kami informasikan bahwa *' . panggilan($jenis_kelamin) . ' ' . $nama_siswa . '* telah melakukan presensi ' . $waktu . ' hari ini pukul ' . $presensi['jam_keluar'] . ' WIB.
+                  _© 2024 - ' . $tahun . ' MTs Negeri 1 Pandeglang_',
                   'number' =>  $data['no_hp']
                ),
             ));
-
             $response = curl_exec($curl);
-
             curl_close($curl);
             echo $response;
-            // Akhir Notifikasi Whatsapp
          }
          break;
          ?>
       </div>
-      
-      <!-- Scan Presensi Guru -->
    <?php
    case TipeUser::Guru:
    ?>
+   <!-- Scan Presensi Guru -->
       <h3 class="text-success text-center mb-4"><b>Presensi <?= $waktu; ?> berhasil!</b></h3>
       <div class="row w-100">
          <div class="col">
@@ -127,7 +109,6 @@ _© 2024 - ' . $tahun . ' MTs Negeri 1 Pandeglang_',
                return "Ibu";
             }
          }
-         
          if (($waktu == "masuk") && (TipeUser::Guru)) {
             // Notifikasi Whatsapp Presensi Masuk Guru/Staf
             $curl = curl_init();
@@ -142,25 +123,18 @@ _© 2024 - ' . $tahun . ' MTs Negeri 1 Pandeglang_',
                CURLOPT_CUSTOMREQUEST => 'POST',
                CURLOPT_POSTFIELDS => array(
                   'message' => '*PTSP MTSN 1 PANDEGLANG*
-
-*Presensi ' . $waktu . '* berhasil!
-Kami informasikan bahwa *' . panggilan($jenis_kelamin) . ' ' . $nama_guru . '* telah melakukan presensi ' . $waktu . ' hari ini pukul ' . $presensi['jam_masuk'] . ' WIB.
-
-_© 2024 - ' . $tahun . ' MTs Negeri 1 Pandeglang_',
-
+                  *Presensi ' . $waktu . '* berhasil!
+                  Kami informasikan bahwa *' . panggilan($jenis_kelamin) . ' ' . $nama_guru . '* telah melakukan presensi ' . $waktu . ' hari ini pukul ' . $presensi['jam_masuk'] . ' WIB.
+                  _© 2024 - ' . $tahun . ' MTs Negeri 1 Pandeglang_',
                   'number' =>  $data['no_hp']
                ),
             ));
-
             $response = curl_exec($curl);
-
             curl_close($curl);
             echo $response;
-            // Akhir Notifikasi Whatsapp   
          } else {
             // Notifikasi Whatsapp Presensi Pulang Guru/Staf
             $curl = curl_init();
-
             curl_setopt_array($curl, array(
                CURLOPT_URL => 'https://api.zedlabs.id/send-message',
                CURLOPT_RETURNTRANSFER => true,
@@ -172,23 +146,16 @@ _© 2024 - ' . $tahun . ' MTs Negeri 1 Pandeglang_',
                CURLOPT_CUSTOMREQUEST => 'POST',
                CURLOPT_POSTFIELDS => array(
                   'message' => '*PTSP MTSN 1 PANDEGLANG*
-
-*Presensi ' . $waktu . '* berhasil!
-Kami informasikan bahwa *' . panggilan($jenis_kelamin) . ' ' . $nama_guru . '* telah melakukan presensi ' . $waktu . ' hari ini pukul ' . $presensi['jam_keluar'] . ' WIB.
-
-_© 2024 - ' . $tahun . ' MTs Negeri 1 Pandeglang_',
-
+                  *Presensi ' . $waktu . '* berhasil!
+                  Kami informasikan bahwa *' . panggilan($jenis_kelamin) . ' ' . $nama_guru . '* telah melakukan presensi ' . $waktu . ' hari ini pukul ' . $presensi['jam_keluar'] . ' WIB.
+                  _© 2024 - ' . $tahun . ' MTs Negeri 1 Pandeglang_',
                   'number' =>  $data['no_hp']
                ),
             ));
-
             $response = curl_exec($curl);
-
             curl_close($curl);
             echo $response;
-            // Akhir Notifikasi Whatsapp
          }
-
          break;
       default:
          ?>
@@ -197,7 +164,6 @@ _© 2024 - ' . $tahun . ' MTs Negeri 1 Pandeglang_',
    <?php
          break;
    }
-
    function jam($presensi)
    {
    ?>
@@ -205,5 +171,4 @@ _© 2024 - ' . $tahun . ' MTs Negeri 1 Pandeglang_',
    <p>Jam pulang : <b class="text-info"><?= $presensi['jam_keluar'] ?? '-'; ?></b></p>
 <?php
    }
-
 ?>
